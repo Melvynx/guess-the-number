@@ -8,7 +8,7 @@ body{
     background-color: #efb780;
     padding: 5px;
     margin-top: 0px;
-    height: 500px;
+    height: 800px;
     border: 0.5px solid #592d01;
     border-radius: 5px;
 }
@@ -35,9 +35,12 @@ p{
     margin: auto;
     background-color: #f0922d;
 }
-#game_stop{
+/*#game_stop{
     position: relative;
     top: 100px;
+}*/
+#start_stop{
+    display: flex;
 }
 #start_game:hover, #game_stop:hover{
     background-color: #592d01;

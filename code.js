@@ -7,6 +7,13 @@ let tryCount = 0; //compteur d'essai
 let game_start = false; //si la game à commencer
 let infoStart = document.getElementById('infoStart');
 //début de partie
+
+let getHighScore = function () {
+  localHighScore = JSON.parse(localStorage.getItem("high_score"));
+  return localHighScore;
+}
+getHighScore();
+
 buttonStart.onclick = function () {
   randomNumber = getRandomInt(100);
   console.log("Game started with number:", randomNumber);
@@ -48,6 +55,18 @@ sendNumber.onclick = function () {
       localStorage.setItem("high_score", JSON.stringify(high_score))
       console.log(high_score);
 
+
+
+
+
+
+
+
+
+
+
+
+
     } else if (newNumber < 0) {
       answer.innerHTML = "Tu dois donner un nombre positif.";
       setTimeout(function(){ answer.innerHTML = ""; }, 2200)
@@ -81,9 +100,22 @@ buttonStop.onclick = function () {
   buttonStart.innerHTML = "Start";
   console.log("Game stop successful");
   tryCount = 0;
+  infoStart.innerHTML = "Appuis sur start pour commencer la partie<br />Bonne chance :)";
 }
 
 
+function splitString(stringToSplit, separator) {
+  return stringToSplit.split(separator);
+}
+
+for (let i = 0; i < localHighScore.length; i++) {
+  const array = splitString(localHighScore[i], ";");
+  let pHighScore = document.getElementById(`high_score${i}`);
+
+  console.log(pHighScore)
+  pHighScore.innerHTML = `${i + 1}. ${array[0]} en ${array[1]} essais.`;
+
+}
 
 
 
