@@ -21,6 +21,10 @@ const sendNumber = document.getElementById('sendNumber');
 let numberByUser = 0;
 numberByUser = document.getElementById('number_give');
 
+let high_score = ["Melvyn;12", "Michel;7"];
+
+
+
 //lorsque qu'on clic sur tester
 sendNumber.onclick = function () {
   
@@ -39,6 +43,11 @@ sendNumber.onclick = function () {
       
       console.log("Game stop successful");
       game_start = false;
+      let pseudoU = prompt('Donnez moi votre pseudo :');
+      high_score.push(`${pseudoU};${tryCount}`);
+      localStorage.setItem("high_score", JSON.stringify(high_score))
+      console.log(high_score);
+
     } else if (newNumber < 0) {
       answer.innerHTML = "Tu dois donner un nombre positif.";
       setTimeout(function(){ answer.innerHTML = ""; }, 2200)
@@ -73,6 +82,7 @@ buttonStop.onclick = function () {
   console.log("Game stop successful");
   tryCount = 0;
 }
+
 
 
 
