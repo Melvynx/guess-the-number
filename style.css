@@ -50,6 +50,7 @@ p{
 #number_give{
     border-radius: 5px;
     width: 40px;
+    margin-left: 10px;
 }
 #sendNumber{
     border-radius: 5px;
@@ -85,4 +86,90 @@ p{
 
 .end{
     color: red;
+}
+#answer{
+    border-bottom: 2px solid rgba(245, 126, 57, 0.904);
+    width: 750px;
+    margin-top: 30px;
+    margin-left: 10px;
+}
+#high_score{
+    border: 2px solid rgba(0, 0, 0, 0.705);
+    width: 300px;
+    padding: 0px;
+    border-radius: 5px;
+    margin: auto;
+}
+h4{
+    background: rgb(248, 115, 37);
+    padding: 0px;
+    text-align: center;
+    padding: 5px;
+    margin: 0px;
+}
+#high_score0{
+    background: rgb(250, 229, 39);
+    padding: 5px;
+    margin: 0px;
+    text-align: center;
+}
+#high_score1{
+    background: rgb(60, 245, 84);
+    padding: 5px;
+    margin: 0px;
+    text-align: center;
+}
+#high_score2{
+    background: rgb(51, 241, 255);
+    padding: 5px;
+    margin: 0px;
+    text-align: center;
+}
+#high_score3{
+    margin: 0px;
+    padding: 5px;
+    text-align: center;
+    background-color: #efb780;
+}
+#high_score4{
+    margin: 0px;
+    padding: 5px;
+    text-align: center;
+    background-color: #ce9f6f;
+}
+#high_score5{
+    margin: 0px;
+    padding: 5px;
+    text-align: center;
+    background-color: #efb780;
+}
+#high_score6{
+    margin: 0px;
+    padding: 5px;
+    text-align: center;
+    background-color: #ce9f6f;
+}
+#high_score7{
+    margin: 0px;
+    padding: 5px;
+    text-align: center;
+    background-color: #efb780;
+}
+#high_score8{
+    margin: 0px;
+    padding: 5px;
+    text-align: center;
+    background-color: #ce9f6f;
+}
+#high_score9{
+    margin: 0px;
+    padding: 5px;
+    text-align: center;
+    background-color: #efb780;
+}
+
+footer{
+    
+    position: relative;
+    top: 100;
 }

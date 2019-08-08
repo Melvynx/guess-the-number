@@ -2,7 +2,7 @@ comment faire en sorte que la zone de text soit sellectionner automatiquement
 
 sortir les entrées dans l'ordre
 
-
+lorsque le champ nom est vide après des erreurs le tableau crash 
 
 
 
@@ -14,8 +14,6 @@ Apprendre à stocker des données en LocalStorage.
 Plusieurs moyen de trier les tableau
 A maitrisez les fonctions
 Permis de comprendre ce que j'aprennais et pouvoir voir les utilisations que sa permettais
-
-
 
 
 

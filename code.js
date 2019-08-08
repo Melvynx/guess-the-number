@@ -28,9 +28,12 @@ function getUserPseudo() {
   if (pseudo === null) {
     return null;
   }
+  if (pseudo === "") {
+    return null;
+  }
 
-  if (pseudo.length < 3 || pseudo.length > 20) {
-    alert('Votre pseudo doit contenir entre 3 et 20 caractères.');
+  if (pseudo.length < 3 || pseudo.length > 18) {
+    alert('Votre pseudo doit contenir entre 3 et 18 caractères.');
     return getUserPseudo();
   } else {
     if (localHighScore === null) {
@@ -76,15 +79,19 @@ sendNumber.onclick = function () {
       const previousHighScore = localStorage.getItem('high_score');
       let highScore;
 
+      if (pseudoUser === null) {
 
-      if (previousHighScore) {
-        highScore = JSON.parse(previousHighScore);
-        highScore.push({ pseudo: pseudoUser, score: tryCount });
       } else {
-        highScore = [{ pseudo: pseudoUser, score: tryCount }];
+        if (previousHighScore) {
+          highScore = JSON.parse(previousHighScore);
+          highScore.push({ pseudo: pseudoUser, score: tryCount });
+        } else {
+          highScore = [{ pseudo: pseudoUser, score: tryCount }];
+        }
       }
 
       localStorage.setItem("high_score", JSON.stringify(highScore))
+      //let b = [{ pseudo: "Pascal", score: 13 }, { pseudo: "Lopiro", score: 11 }, { pseudo: "Calme", score: 25 }, { pseudo: "sorcière", score: 20 }, { pseudo: "PascalLeGrandFrere", score: 22 }, { pseudo: "Jean-mi", score: 65 }, { pseudo: "Aurelien", score: 11 }, { pseudo: "LeMenuisier", score: 30 },{ pseudo: "Karott", score: 85 },{ pseudo: "Zèbre", score: 38 }];
       window.location.reload();
 
     } else if (newNumber < 0) {
