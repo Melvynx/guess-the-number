@@ -1,0 +1,22 @@
+comment faire en sorte que la zone de text soit sellectionner automatiquement
+
+sortir les entrées dans l'ordre
+
+
+
+
+
+
+Ce que ma appris mon site.
+---------------
+J'ai pus insérée du JS dans une page html. Crée des boutons, donner du réponse
+Apprendre à stocker des données en LocalStorage.
+Plusieurs moyen de trier les tableau
+A maitrisez les fonctions
+Permis de comprendre ce que j'aprennais et pouvoir voir les utilisations que sa permettais
+
+
+
+
+
+

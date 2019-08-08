@@ -23,22 +23,35 @@ function getHighScore() {
   return JSON.parse(localStorage.getItem("high_score"));
 }
 
+function getUserPseudo() {
+  const pseudo = prompt('Donnez moi votre pseudo :');
+  if (pseudo === null) {
+    return null;
+  }
+
+  if (pseudo.length < 3 || pseudo.length > 20) {
+    alert('Votre pseudo doit contenir entre 3 et 20 caractères.');
+    return getUserPseudo();
+  } else {
+    if (localHighScore === null) {
+      return pseudo;
+    } else {
+
+      const found = localHighScore.find(highScore => highScore.pseudo === pseudo);
+
+      if (found) {
+        alert('Votre pseudo est déjà utilisé.');
+        return getUserPseudo();
+      }
+      return pseudo
+    }
+  }
+}
+
+
 const sendNumber = document.getElementById('sendNumber');
 const numberByUser = document.getElementById('number_give');
 
-function getUserPseudo() {
-  const value = prompt('Toto');
-  if (value === null) {
-    return null;
-  }
-  
-  if (value.length < 3 || value.length > 20) {
-    alert('Error');
-    return getUserPseudo();
-  } else {
-    return value;
-  }
-}
 
 //lorsque qu'on clic sur tester
 sendNumber.onclick = function () {
@@ -57,16 +70,18 @@ sendNumber.onclick = function () {
       Tu as réussi à trouver le nombre que je pensais qui était <span class="configuration_number">${randomNumber}</span>. <br/> Tu l'as trouvé en ${tryCount} essais. `;
 
       game_start = false;
-            console.log("Game stop successful");
+      console.log("Game stop successful");
 
-      const pseudoUser = prompt('Donnez moi votre pseudo :');
+      pseudoUser = getUserPseudo();
       const previousHighScore = localStorage.getItem('high_score');
       let highScore;
+
+
       if (previousHighScore) {
         highScore = JSON.parse(previousHighScore);
-        highScore.push({pseudo : pseudoUser, score : tryCount});
+        highScore.push({ pseudo: pseudoUser, score: tryCount });
       } else {
-        highScore = [{pseudo : pseudoUser, score : tryCount}];
+        highScore = [{ pseudo: pseudoUser, score: tryCount }];
       }
 
       localStorage.setItem("high_score", JSON.stringify(highScore))
@@ -114,7 +129,7 @@ buttonStop.onclick = function () {
 
 
 // const localHighScore = getHighScore(); je vais ligne 5 moi a plus
-const localHighScoreBest = localHighScore.sort((a,b) => (a.score > b.score) ? 1 : ((b.score > a.score) ? -1 : 0));
+const localHighScoreBest = localHighScore.sort((a, b) => (a.score > b.score) ? 1 : ((b.score > a.score) ? -1 : 0));
 for (let i = 0; i < localHighScoreBest.length; i++) {
 
   let pHighScore = document.getElementById(`high_score${i}`);
@@ -122,3 +137,5 @@ for (let i = 0; i < localHighScoreBest.length; i++) {
   console.log(pHighScore)
   pHighScore.innerHTML = `${i + 1}. ${localHighScoreBest[i].pseudo} en ${localHighScoreBest[i].score} essais.`;
 }
+//Pour changer le tableau : mettre le nouveau tableau dans une variable (a = [1,2,3,4]) puis l'égaliser avec le tableau enregistrer (highScore = a), et set le tableau dans le local storage 
+// localStorage.setItem("high_score", JSON.stringify(highScore))
