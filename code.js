@@ -2,7 +2,7 @@ let randomNumber = 0;
 let tryCount = 0; //compteur d'essai
 let game_start = false; //si la game à commencer
 const infoStart = document.getElementById('infoStart');
-
+const localHighScore = getHighScore();
 const buttonStart = document.getElementById('start_game');
 buttonStart.onclick = function () {
   randomNumber = getRandomInt(100);
@@ -26,6 +26,20 @@ function getHighScore() {
 const sendNumber = document.getElementById('sendNumber');
 const numberByUser = document.getElementById('number_give');
 
+function getUserPseudo() {
+  const value = prompt('Toto');
+  if (value === null) {
+    return null;
+  }
+  
+  if (value.length < 3 || value.length > 20) {
+    alert('Error');
+    return getUserPseudo();
+  } else {
+    return value;
+  }
+}
+
 //lorsque qu'on clic sur tester
 sendNumber.onclick = function () {
 
@@ -48,16 +62,15 @@ sendNumber.onclick = function () {
       const pseudoUser = prompt('Donnez moi votre pseudo :');
       const previousHighScore = localStorage.getItem('high_score');
       let highScore;
-
       if (previousHighScore) {
         highScore = JSON.parse(previousHighScore);
-        highScore.push(`${pseudoUser};${tryCount}`);
+        highScore.push({pseudo : pseudoUser, score : tryCount});
       } else {
-        highScore = [`${pseudoUser};${tryCount}`];
+        highScore = [{pseudo : pseudoUser, score : tryCount}];
       }
 
       localStorage.setItem("high_score", JSON.stringify(highScore))
-
+      window.location.reload();
 
     } else if (newNumber < 0) {
       answer.innerHTML = "Tu dois donner un nombre positif.";
@@ -95,11 +108,17 @@ buttonStop.onclick = function () {
   infoStart.innerHTML = "Appuis sur start pour commencer la partie<br />Bonne chance :)";
 }
 
-const localHighScore = getHighScore();
-for (let i = 0; i < localHighScore.length; i++) {
-  const array = localHighScore[i].split(";")
+
+
+
+
+
+// const localHighScore = getHighScore(); je vais ligne 5 moi a plus
+const localHighScoreBest = localHighScore.sort((a,b) => (a.score > b.score) ? 1 : ((b.score > a.score) ? -1 : 0));
+for (let i = 0; i < localHighScoreBest.length; i++) {
+
   let pHighScore = document.getElementById(`high_score${i}`);
 
   console.log(pHighScore)
-  pHighScore.innerHTML = `${i + 1}. ${array[0]} en ${array[1]} essais.`;
+  pHighScore.innerHTML = `${i + 1}. ${localHighScoreBest[i].pseudo} en ${localHighScoreBest[i].score} essais.`;
 }
