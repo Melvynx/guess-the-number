@@ -20,7 +20,7 @@ buttonStart.onclick = function () {
     console.log("Game started with number:", randomNumber);
     tryCount = 0;
     answer.innerHTML = "";
-    infoStart.innerHTML = 'La viens de <span id="infosrart_re">recommencer</span>. Le nombre à été regénéré. <br /> Tu peux remplir le champs avec un nombre positif.';
+    infoStart.innerHTML = 'La partie de <span id="infosrart_re">recommencer</span>. Le nombre à été regénéré. <br /> Tu peux remplir le champs avec un nombre positif.';
     setTimeout(function () { answer.innerHTML = ""; }, 2200);
     setTimeout(function () {
       infoStart.innerHTML = "La partie à commencer. <br /> Tu peux remplir le champs avec un nombre positif.";
