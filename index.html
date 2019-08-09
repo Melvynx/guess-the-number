@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title></title>
+        <title>Jeu du nombre</title>
         <meta charset="utf-8">
         <link href="style.css" rel="stylesheet">
     </head>
     <body>
         <div id="block">    
-            <h1>Jeu : Devine le nombre que je pense</h1>
+            <h1 id="h1">Jeu : Devine le nombre que je pense</h1>
             <div id="start_stop">
                 <button id="start_game">Start</button>
                 <button id="game_stop">STOP</button>
@@ -19,14 +19,12 @@
             <input type="submit" value="Tester" id="sendNumber">
 
             <p id="answer">
-                Ton nombre est trop petit !!
-
-
+               
             </p>
 
             
             <div id="high_score">
-                <h4>Meilleur score</h4>
+                <h4 id="titleHighScore">Meilleur score</h4>
                 <p id="high_score0"></p>
                 <p id="high_score1"></p>
                 <p id="high_score2"></p>
@@ -41,7 +39,7 @@
 
             </div>
 
-            <footer>Site crée par Melvyn Malherbe chez Qoqa</footer>
+            <footer>Jeu crée par Melvyn Malherbe chez Qoqa</footer>
         </div>
 
     <script src="code.js"></script>
