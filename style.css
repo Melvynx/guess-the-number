@@ -1,5 +1,5 @@
 body{
-    background-color: #efb780;
+    background-color: #aaaaaa;
     font-family: Arial;
 }
 #block{
@@ -23,10 +23,10 @@ h2{
 }
 h3{
     font-weight: normal;
-    color: #592d01; 
+    color: black; 
 }
 p{
-    color: #592d01;
+    color: white;
 }
 #start_game, #game_stop{
     border-radius: 5px;
