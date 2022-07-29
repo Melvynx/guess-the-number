@@ -40,7 +40,13 @@ function getRandomInt(max) {
 }
 
 function getHighScore() {
-  return JSON.parse(localStorage.getItem('high_score'));
+  const json = localStorage.getItem('high_score');
+  try {
+    return JSON.parse(json);
+  } catch (e) {
+    console.error(`${json} is not a json`);
+    return [];
+  }
 }
 
 function getUserPseudo() {
@@ -100,7 +106,7 @@ sendNumber.onclick = function () {
       console.log('Game stop successful');
 
       pseudoUser = getUserPseudo();
-      const previousHighScore = localStorage.getItem('high_score');
+      const previousHighScore = localStorage.getItem('high_score') || [];
       let highScore;
 
       if (pseudoUser === null) {
